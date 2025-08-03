@@ -8,10 +8,9 @@
     position: absolute;
 }
 
-.navbar-heading{
-    color: #fff;
-    font-size: 30px;
-    font-weight: bold;
+.logo{
+    width: 150px;
+    height: 110px;
 }
 
 .navbar-search-container{
