@@ -1,0 +1,7 @@
+import React from 'react'
+
+export const Appcontext = React.createContext({
+     searchQuery: '',
+     setSearchQuery: () => {},
+     backendUrl : ''
+})
