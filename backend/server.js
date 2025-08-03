@@ -87,10 +87,10 @@ app.get('/doctors/:id', async ( req, res) => {
 
 app.post('/appointment', async ( req, res) => {
     try {
-        const { doctorId, patientName, email, dateTime} = req.body 
+        const { doctorId, patientName, email, dateTime, notes} = req.body 
         if (!doctorId || !patientName || !email || !dateTime) return res.status(400).json({error: "Missing fields"})
         const newAppointment = new Appointment({
-            doctorId, patientName, email, dateTime
+            doctorId, patientName, email, dateTime, notes
         })      
         const data  = await newAppointment.save()
         res.status(200).json({data})  

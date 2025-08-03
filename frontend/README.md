@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+Doctor Booking App - Frontend
+Overview
+This is the frontend React application for the Doctor Booking App. It provides users with an intuitive interface to:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Search for doctors by name or specialization.
 
-## Available Scripts
+View detailed doctor profiles.
 
-In the project directory, you can run:
+Book appointments via a modal popup form.
 
-### `npm start`
+The app communicates with a backend REST API to fetch doctor data and manage appointments.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🛠️ Technologies Used
+React v19 – UI Library
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React Router v7 – Routing & navigation
 
-### `npm test`
+Axios – HTTP client for API requests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React Icons – Icon library
 
-### `npm run build`
+CSS Modules / Regular CSS – Styling
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Context API – Global state management
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+📁 Project Structure
+css
+Copy
+Edit
+src/
+├── components/
+│   ├── Navbar/
+│   ├── DoctorList/
+│   ├── BookAppointment/
+├── pages/
+│   ├── LandingPage/
+│   ├── DoctorDetailsPage/
+├── Context/
+│   └── AppContext.js
+├── App.js
+├── index.js
+├── App.css
+⚙️ Available Scripts
+In the project root directory, you can run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm start
+Runs the app in development mode.
+Open http://localhost:3000 to view it in the browser.
 
-### `npm run eject`
+npm run build
+Builds the app for production to the build/ folder.
+Minifies code and includes hashed filenames.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm test
+Launches the test runner in watch mode.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm eject
+Use with caution. This is irreversible and exposes build config.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ℹ️ Make sure your package.json uses react-scripts for these to work.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🌐 Environment Variables
+Create a .env file in the project root:
 
-## Learn More
+env
+Copy
+Edit
+REACT_APP_BACKEND_URL=https://doctorbookingapp-docm.onrender.com
+The backend URL is stored in context (AppContext.js) and used across the app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🔍 Features & Components
+1. App.js
+Root component
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Sets up React Router routes:
 
-### Code Splitting
+/ → LandingPage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+/doctor/:id → DoctorDetailsPage
 
-### Analyzing the Bundle Size
+Provides global context with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+searchQuery for filtering doctors
 
-### Making a Progressive Web App
+backendUrl for API calls
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. LandingPage
+Shows top navbar with logo and search bar
 
-### Advanced Configuration
+Filters doctors by name/specialization using searchQuery
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Displays doctors via DoctorList component
 
-### Deployment
+3. Navbar
+App logo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Global search input (updates searchQuery)
 
-### `npm run build` fails to minify
+Placeholder for future user profile icon
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. DoctorList
+Fetches doctors from API filtered by searchQuery
+
+Shows cards with photo, name, specialization, availability
+
+Clicking a card navigates to detailed profile
+
+5. DoctorDetailsPage
+Fetches doctor details by ID
+
+Displays:
+
+About section
+
+Education and expertise
+
+Weekly availability
+
+If available, shows "Book Appointment" button
+
+6. BookAppointment Modal
+Controlled form collects:
+
+Patient name, email, date, time, and notes(optional)
+
+Posts data to backend
+
+Displays success message on booking
+
+Can be closed via cancel or "X" icon
+
+🎨 Styling
+Responsive layout using Flexbox and Grid
+
+CSS files (.css) for styling
+
+Button colors indicate doctor availability (e.g., green = Available Today, red = Fully Booked and gray = On Leave)
+

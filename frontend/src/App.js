@@ -7,7 +7,7 @@ import { Appcontext } from './Context/AppContext';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('')
-  const backendUrl = 'http://localhost:3000'
+  const backendUrl = 'https://doctorbookingapp-docm.onrender.com'
   return (
     <Appcontext.Provider value={{
       searchQuery, setSearchQuery, backendUrl
