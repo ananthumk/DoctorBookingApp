@@ -9,7 +9,7 @@ const LandingPage = () => {
   return (
     <div className='landing-page-container'>
         <Navbar />
-        <div className='doctor-list-page' style={{marginTop: '5%'}}>
+        <div className='doctor-list-page'>
           <h1>Find Your Doctor</h1>
           <p>Choose from our experienced healthcare professionals</p>
            <input type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className='search-input' placeholder='Search doctors by name and specialization' />
