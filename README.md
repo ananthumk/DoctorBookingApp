@@ -8,7 +8,7 @@ project/
 ├── backend/     # Express API with MongoDB
 └── README.md    # This file
 🌐 Live Demo
-Frontend: https://doctorbookingapp.vercel.app
+Frontend: https://doctorsbooking1.vercel.app/
 Backend API: https://doctorbookingapp-docm.onrender.com
 
 📲 Features
